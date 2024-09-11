@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { FaRocket, FaCog, FaShieldAlt } from 'react-icons/fa';
-import '../styles/AboutUs.css';
+import React, { useEffect, useRef } from "react";
+import { FaRocket, FaCog, FaShieldAlt } from "react-icons/fa";
+import "../styles/AboutUs.css";
 
 const AboutUs = () => {
   const animationRef = useRef(null);
@@ -35,15 +35,26 @@ const AboutUs = () => {
           </div>
           <div className="about-text">
             <p>
-              At Motohub, we're redefining the pre-owned vehicle experience. Our passion for cutting-edge technology and unparalleled performance sets us apart in the automotive world.
+              At Motohub, we're redefining the pre-owned vehicle experience. Our
+              passion for cutting-edge technology and unparalleled performance
+              sets us apart in the automotive world.
             </p>
             <ul className="feature-list">
-              <li><FaRocket /> <span>Curated selection of high-performance vehicles</span></li>
-              <li><FaCog /> <span>State-of-the-art maintenance and upgrades</span></li>
-              <li><FaShieldAlt /> <span>Comprehensive warranty and support</span></li>
+              <li>
+                <FaRocket />{" "}
+                <span>Curated selection of high-performance vehicles</span>
+              </li>
+              <li>
+                <FaCog /> <span>State-of-the-art maintenance and upgrades</span>
+              </li>
+              <li>
+                <FaShieldAlt /> <span>Comprehensive warranty and support</span>
+              </li>
             </ul>
             <p>
-              Experience the thrill of driving tomorrow's technology today. With Motohub, you're not just buying a car – you're investing in the future of automotive excellence.
+              Experience the thrill of driving tomorrow's technology today. With
+              Motohub, you're not just buying a car – you're investing in the
+              future of automotive excellence.
             </p>
             <button className="cta-button">Explore Our Vision</button>
           </div>

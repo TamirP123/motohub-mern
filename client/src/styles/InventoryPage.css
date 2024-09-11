@@ -1,0 +1,62 @@
+.inventory-page {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+}
+
+.inventory-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.inventory-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  color: #00a2ff;
+  text-shadow: 0 0 15px rgba(0, 162, 255, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.inventory-search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.inventory-search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.inventory-search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 162, 255, 0.5);
+}
+
+.inventory-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.inventory-car-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.inventory-loading, .inventory-error {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #00a2ff;
+  margin-top: 3rem;
+}
+
+.inventory-error {
+  color: #ff4444;
+}

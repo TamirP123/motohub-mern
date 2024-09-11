@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import InventoryPage from "./pages/InventoryPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/inventory",
+        element: <InventoryPage />,
       },
     ],
   },

@@ -23,11 +23,17 @@ body, html {
 
 /* Modify the navbar style */
 #navbar {
-  position: fixed; /* Changed from absolute to fixed */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1000; /* Increased z-index */
+  z-index: 1000;
+  height: 60px; /* Adjust this value to match your navbar's actual height */
+}
+
+/* Adjust the main content style */
+.main-content {
+  padding-top: 60px; /* This should be the same as the navbar height */
 }
 

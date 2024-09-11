@@ -5,7 +5,7 @@ import NavbarComponent from "./components/NavbarComponent";
 import "./App.css";
 
 const client = new ApolloClient({
-  uri: '/graphql', // Make sure this points to your GraphQL endpoint
+  uri: '/graphql',
   cache: new InMemoryCache(),
   defaultOptions: {
     watchQuery: {
@@ -24,7 +24,9 @@ function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <NavbarComponent />
-        <Outlet />
+        <div className="main-content">
+          <Outlet />
+        </div>
       </div>
     </ApolloProvider>
   );

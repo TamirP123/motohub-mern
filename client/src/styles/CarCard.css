@@ -1,0 +1,82 @@
+.inventory-car-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inventory-car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 162, 255, 0.3);
+}
+
+.inventory-car-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.inventory-car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.inventory-car-card:hover .inventory-car-image {
+  transform: scale(1.05);
+}
+
+.inventory-featured-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00a2ff;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.inventory-car-info {
+  padding: 1.5rem;
+}
+
+.inventory-car-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.inventory-car-price {
+  font-size: 1.8rem;
+  color: #00a2ff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.inventory-car-details {
+  color: #a0a0a0;
+  margin-bottom: 1rem;
+}
+
+.inventory-view-details-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #00a2ff, #0077ff);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.inventory-view-details-btn:hover {
+  background: linear-gradient(45deg, #0077ff, #00a2ff);
+  box-shadow: 0 0 15px rgba(0, 162, 255, 0.5);
+}

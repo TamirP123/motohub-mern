@@ -36,3 +36,21 @@ export const QUERY_FEATURED_CARS = gql`
   }
 `;
 
+
+export const GET_ALL_CARS = gql`
+  query getAllCars {
+    cars {
+      _id
+      name
+      make
+      model
+      year
+      price
+      mileage
+      exteriorColor
+      images
+      featured
+    }
+  }
+`;
+

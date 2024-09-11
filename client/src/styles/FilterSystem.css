@@ -1,0 +1,55 @@
+.filter-system {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  color: #ffffff;
+  width: 300px;
+}
+
+.filter-system h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #00a2ff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.filter-section {
+  margin-bottom: 2rem;
+}
+
+.filter-section h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+/* Customize MUI components */
+.MuiSlider-root {
+  color: #00a2ff !important;
+}
+
+.MuiSlider-thumb {
+  background-color: #ffffff !important;
+}
+
+.MuiSlider-valueLabel {
+  background-color: #00a2ff !important;
+}
+
+.MuiCheckbox-root {
+  color: #00a2ff !important;
+}
+
+.MuiFormControlLabel-label {
+  color: #ffffff !important;
+}
