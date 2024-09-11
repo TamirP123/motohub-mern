@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.hero {
+  position: relative;
+  height: 100vh; /* Changed to full viewport height */
+  background: linear-gradient(135deg, #050505 0%, #101015 100%); /* Darker background */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 80px 5% 0; /* Added top padding to account for navbar */
+}
+
+.hero-content {
+  flex: 1;
+  z-index: 2;
+}
+
+.hero-content h1, .hero-content p {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 162, 255, 0.5);
+  letter-spacing: -1px;
+}
+
+.hero-content h1.glitch {
+  animation: glitch 0.5s linear;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, #00a2ff, #0077ff);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 162, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 162, 255, 0.4);
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-image img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 162, 255, 0.3));
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.futuristic-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.line {
+  position: absolute;
+  background: rgba(0, 162, 255, 0.3);
+  box-shadow: 0 0 10px #00a2ff, 0 0 20px #00a2ff;
+}
+
+.line-1 {
+  top: 20%;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  transform: rotate(-5deg);
+}
+
+.line-2 {
+  bottom: 30%;
+  right: -10%;
+  width: 120%;
+  height: 1px;
+  transform: rotate(5deg);
+}
+
+.circle {
+  position: absolute;
+  border: 2px solid rgba(0, 162, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00a2ff, 0 0 40px #00a2ff;
+}
+
+.circle-1 {
+  top: 10%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  animation: rotate 20s linear infinite;
+}
+
+.circle-2 {
+  bottom: 15%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  animation: rotate 30s linear infinite reverse;
+}
+
+.dot {
+  position: absolute;
+  background-color: rgba(0, 162, 255, 0.6);
+  border-radius: 50%;
+}
+
+.dot-1 {
+  width: 10px;
+  height: 10px;
+  top: 15%;
+  left: 10%;
+  animation: pulse 4s infinite;
+}
+
+.dot-2 {
+  width: 15px;
+  height: 15px;
+  bottom: 20%;
+  right: 15%;
+  animation: pulse 4s infinite 1s;
+}
+
+.dot-3 {
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  animation: pulse 4s infinite 2s;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.5); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  display: block;
+  background: rgba(0, 162, 255, 0.5);
+  width: 2px;
+  height: 2px;
+  animation: particles 15s linear infinite;
+}
+
+@keyframes particles {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100vw);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 5% 5%;
+  }
+
+  .hero-content, .hero-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .hero-image img {
+    max-height: 50vh;
+  }
+}

@@ -1,42 +1,15 @@
-import { Outlet } from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink
-} from '@apollo/client';
-import './App.css'
-import { setContext } from '@apollo/client/link/context';
-const httpLink = createHttpLink({
-  uri: '/graphql'
-});
-
-import Navbar from './components/Navbar';
-// import Footer from "./components/Footer.jsx";
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : ''
-    }
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
-});
+import React from "react";
+import { Outlet } from "react-router-dom";
+import NavbarComponent from "./components/NavbarComponent";
+import "./App.css";
 
 function App() {
   return (
-  <ApolloProvider client={client}>
-    <Navbar />
-    <Outlet />
-    {/* <Footer /> */}
-  </ApolloProvider>
-    )
+    <div className="App">
+      <NavbarComponent />
+      <Outlet />
+    </div>
+  );
 }
 
-export default App
+export default App;

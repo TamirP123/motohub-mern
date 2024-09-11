@@ -1,0 +1,91 @@
+.performance-guarantee {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 6rem 0;
+  color: #ffffff;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #00a2ff;
+  text-shadow: 0 0 10px rgba(0, 162, 255, 0.5);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: #a0a0a0;
+}
+
+.guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.guarantee-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guarantee-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 162, 255, 0.3);
+}
+
+.guarantee-icon {
+  font-size: 3rem;
+  color: #00a2ff;
+  margin-bottom: 1rem;
+}
+
+.guarantee-item h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.guarantee-item p {
+  color: #a0a0a0;
+}
+
+.cta-container {
+  text-align: center;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #00a2ff, #0077ff);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, #0077ff, #00a2ff);
+  box-shadow: 0 0 20px rgba(0, 162, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .guarantee-grid {
+    grid-template-columns: 1fr;
+  }
+}

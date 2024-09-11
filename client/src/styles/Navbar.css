@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+.futuristic-navbar {
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 162, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 162, 255, 0.5);
+}
+
+.futuristic-navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.brand-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.neon-blue {
+  color: #0077ff;
+  text-shadow: 0 0 5px rgba(0, 119, 255, 0.5);
+}
+
+.silver {
+  color: #333333;
+}
+
+.nav-link-custom {
+  color: #333333 !important;
+  margin: 0 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #0077ff !important;
+  text-shadow: 0 0 5px rgba(0, 119, 255, 0.5);
+}
+
+.navbar-toggler {
+  border-color: #0077ff !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 119, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
