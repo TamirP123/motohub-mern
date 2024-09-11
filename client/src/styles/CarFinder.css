@@ -1,0 +1,96 @@
+.car-finder {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 4rem 0;
+  color: #ffffff;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #00a2ff;
+  text-shadow: 0 0 10px rgba(0, 162, 255, 0.5);
+}
+
+.finder-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 162, 255, 0.1);
+}
+
+.input-group {
+  position: relative;
+  flex: 1 1 200px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00a2ff;
+}
+
+.finder-form input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.finder-form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 2px #00a2ff;
+}
+
+.finder-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-button {
+  flex: 1 1 100%;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #00a2ff, #0077ff);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.search-button:hover {
+  background: linear-gradient(45deg, #0077ff, #00a2ff);
+  box-shadow: 0 0 20px rgba(0, 162, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .finder-form {
+    flex-direction: column;
+  }
+
+  .input-group {
+    flex: 1 1 100%;
+  }
+}

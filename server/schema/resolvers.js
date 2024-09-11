@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Car } = require('../models')
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -15,6 +15,32 @@ const resolvers = {
         return User.findOne({ _id: context.user._id });
       }
       throw AuthenticationError;
+    },
+    cars: async () => {
+      try {
+        return await Car.find({});
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+        throw new Error("Failed to fetch cars");
+      }
+    },
+    car: async (parent, { _id }) => {
+      try {
+        return await Car.findById(_id);
+      } catch (error) {
+        console.error("Error fetching car:", error);
+        throw new Error("Failed to fetch car");
+      }
+    },
+    featuredCars: async () => {
+      try {
+        const cars = await Car.find({ featured: true });
+        console.log("Featured cars found:", cars);
+        return cars;
+      } catch (error) {
+        console.error("Error fetching featured cars:", error);
+        throw new Error("Failed to fetch featured cars");
+      }
     },
   },
 
@@ -41,6 +67,15 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addCar: async (parent, { carData }) => {
+      return await Car.create(carData);
+    },
+    updateCar: async (parent, { _id, carData }) => {
+      return await Car.findByIdAndUpdate(_id, carData, { new: true });
+    },
+    deleteCar: async (parent, { _id }) => {
+      return await Car.findByIdAndDelete(_id);
     },
   },
 };

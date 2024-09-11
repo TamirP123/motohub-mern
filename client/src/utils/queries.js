@@ -21,3 +21,18 @@ export const QUERY_ME = gql`
   }
 `;
 
+
+export const QUERY_FEATURED_CARS = gql`
+  query getFeaturedCars {
+    featuredCars {
+      _id
+      name
+      make
+      model
+      year
+      price
+      images
+    }
+  }
+`;
+

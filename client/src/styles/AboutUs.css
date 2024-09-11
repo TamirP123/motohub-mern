@@ -1,0 +1,175 @@
+.about-us {
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 162, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+  background-position: center, -1px -1px, -1px -1px;
+  padding: 8rem 0;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #00a2ff;
+  text-shadow: 0 0 10px rgba(0, 162, 255, 0.3);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-text {
+  flex: 1;
+  padding-left: 4rem;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #a0a0a0;
+}
+
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.feature-list li svg {
+  margin-right: 1rem;
+  color: #00a2ff;
+  font-size: 1.5rem;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #00a2ff, #0077ff);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, #0077ff, #00a2ff);
+  box-shadow: 0 0 20px rgba(0, 162, 255, 0.5);
+}
+
+.about-animation {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.hologram {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.hologram-ring {
+  position: absolute;
+  border: 2px solid #00a2ff;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: pulse 2s infinite alternate;
+}
+
+.hologram-ring:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.hologram-ring:nth-child(2) {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.hologram-ring:nth-child(3) {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.hologram-core {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  background: radial-gradient(circle, #00a2ff 0%, transparent 70%);
+  border-radius: 50%;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #00a2ff, 0 0 20px #00a2ff, 0 0 30px #00a2ff;
+  }
+  100% {
+    box-shadow: 0 0 20px #00a2ff, 0 0 40px #00a2ff, 0 0 60px #00a2ff;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column-reverse;
+  }
+
+  .about-text {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+
+  .about-animation {
+    margin-bottom: 2rem;
+  }
+}
