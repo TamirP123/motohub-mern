@@ -1,0 +1,129 @@
+.car-details-page {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  color: #ffffff;
+}
+
+.car-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.car-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: #00a2ff;
+  text-shadow: 0 0 15px rgba(0, 162, 255, 0.5);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.car-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.car-images {
+  flex: 1;
+  max-width: 600px;
+}
+
+.car-images img {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 162, 255, 0.2);
+}
+
+.car-info {
+  flex: 1;
+}
+
+.car-price-badge {
+  font-size: 2rem;
+  color: #00a2ff;
+  background: rgba(0, 162, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.car-quick-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-item svg {
+  color: #00a2ff;
+}
+
+.car-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.car-description {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #a0a0a0;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+  background: linear-gradient(45deg, #00a2ff, #0077ff);
+  color: #ffffff;
+}
+
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #00a2ff;
+  border: 2px solid #00a2ff;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 162, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .car-content {
+    flex-direction: column;
+  }
+  
+  .car-images, .car-info {
+    max-width: 100%;
+  }
+}

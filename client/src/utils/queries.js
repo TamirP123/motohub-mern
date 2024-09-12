@@ -53,3 +53,26 @@ export const GET_ALL_CARS = gql`
     }
   }
 `;
+
+export const GET_CAR_DETAILS = gql`
+  query getCarDetails($carId: ID!) {
+    car(_id: $carId) {
+      _id
+      name
+      make
+      model
+      year
+      price
+      mileage
+      exteriorColor
+      interiorColor
+      fuelType
+      transmission
+      engine
+      vin
+      featured
+      images
+      description
+    }
+  }
+`;

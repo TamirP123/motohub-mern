@@ -19,7 +19,7 @@ db.once("open", async () => {
       engine: "2.4L I4",
       vin: "ABC123456789",
       featured: true,
-      images: ["hondaMain.png"],
+      images: ["hondaMain.png", "hondaSide.png", "hondaBack.png", "hondaView.png"],
       description: "Sporty and reliable Honda Civic Si",
     },
     {
@@ -36,7 +36,7 @@ db.once("open", async () => {
       engine: "1.6L I4 Turbo",
       vin: "DEF987654321",
       featured: true,
-      images: ["fordMain.png"],
+      images: ["fordMain.png", "fordBack.png", "fordFront.png"],
       description: "Fun and zippy Ford Fiesta ST",
     },
     {
@@ -53,7 +53,7 @@ db.once("open", async () => {
       engine: "2.0L I4",
       vin: "GHI123789456",
       featured: true,
-      images: ["mazdaMain.png"],
+      images: ["mazdaMain.png", "mazdaBack.png", "mazdaFront.png"],
       description: "Classic roadster experience with the Mazda MX-5 Miata",
     },
     {
@@ -70,7 +70,7 @@ db.once("open", async () => {
       engine: "2.5L I4",
       vin: "JKL456123789",
       featured: true,
-      images: ["nissanMain.png"],
+      images: ["nissanMain.png", "nissanBack.png", "nissanFront.png"],
       description: "Reliable and economical Nissan Altima",
     },
     // Add more cars here...
@@ -88,7 +88,7 @@ db.once("open", async () => {
       engine: "1.8L I4",
       vin: "MNO789456123",
       featured: false,
-      images: ["toyotaCorollaMain.png"],
+      images: ["toyotaCorollaMain.png", "toyotaCorollaBack.png", "toyotaCorollaFront.png, toyotaCorollaInterior.png"],
       description: "Reliable and fuel-efficient Toyota Corolla LE",
     },
     {
@@ -105,7 +105,7 @@ db.once("open", async () => {
       engine: "2.0L I4",
       vin: "PQR321654987",
       featured: false,
-      images: ["nissanSentraMain.png"],
+      images: ["nissanSentraMain.png", "nissanSentraBack.png", "nissanSentraFront.png", "nissanSentraInterior.png"],
       description: "Economical and practical Nissan Sentra S",
     },
     {
@@ -122,7 +122,7 @@ db.once("open", async () => {
       engine: "2.4L I4",
       vin: "STU654987321",
       featured: false,
-      images: ["hondaAccordMain.png"],
+      images: ["hondaAccordMain.png", "hondaAccordBack.png", "hondaAccordFront.png", "hondaAccordInterior.png"],
       description: "Well-maintained Honda Accord EX with leather interior",
     },
     {

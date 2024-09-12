@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/CarCard.css";
 
 const CarCard = ({ car }) => {
-  const getImagePath = (car) => {
+  const getImagePath = (car, image) => {
     const make = car.make.toLowerCase();
     let model = car.model.toLowerCase().replace(/\s+/g, "-");
     
@@ -13,16 +13,14 @@ const CarCard = ({ car }) => {
     }
     
     const folderName = `${make}-${model}`;
-    const imagePath = `/images/${folderName}/${car.images[0]}`;
-    console.log(`Attempting to load image: ${imagePath}`); // Add this line for debugging
-    return imagePath;
+    return `/images/${folderName}/${image}`;
   };
 
   return (
     <div className="inventory-car-card">
       <div className="inventory-car-image-container">
         <img
-          src={getImagePath(car)}
+          src={getImagePath(car, car.images[0])}
           alt={car.name}
           className="inventory-car-image"
           onError={(e) => {

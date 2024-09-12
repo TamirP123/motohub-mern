@@ -26,7 +26,11 @@ const resolvers = {
     },
     car: async (parent, { _id }) => {
       try {
-        return await Car.findById(_id);
+        const car = await Car.findById(_id);
+        if (!car) {
+          throw new Error('Car not found');
+        }
+        return car;
       } catch (error) {
         console.error("Error fetching car:", error);
         throw new Error("Failed to fetch car");
