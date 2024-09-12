@@ -29,8 +29,9 @@
 
 .car-image {
   width: 100%;
-  height: 200px;
+  height: 250px; /* Match the height in CarCard.css */
   object-fit: cover;
+  object-position: center;
 }
 
 .car-details {

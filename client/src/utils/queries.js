@@ -10,7 +10,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-
 export const QUERY_ME = gql`
   query me {
     me {
@@ -20,7 +19,6 @@ export const QUERY_ME = gql`
     }
   }
 `;
-
 
 export const QUERY_FEATURED_CARS = gql`
   query getFeaturedCars {
@@ -36,7 +34,7 @@ export const QUERY_FEATURED_CARS = gql`
   }
 `;
 
-
+// Add this new query
 export const GET_ALL_CARS = gql`
   query getAllCars {
     cars {
@@ -48,9 +46,10 @@ export const GET_ALL_CARS = gql`
       price
       mileage
       exteriorColor
-      images
+      interiorColor
+      transmission
       featured
+      images
     }
   }
 `;
-
