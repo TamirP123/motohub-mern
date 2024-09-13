@@ -1,11 +1,12 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_FEATURED_CARS } from '../utils/queries';
-import '../styles/FeaturedCars.css';
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { QUERY_FEATURED_CARS } from "../utils/queries";
+import "../styles/FeaturedCars.css";
 
 const FeaturedCars = () => {
   const { loading, error, data } = useQuery(QUERY_FEATURED_CARS, {
-    onError: (error) => console.error("GraphQL error:", error)
+    onError: (error) => console.error("GraphQL error:", error),
   });
 
   if (loading) return <p>Loading...</p>;
@@ -16,9 +17,12 @@ const FeaturedCars = () => {
   const featuredCars = data.featuredCars;
 
   const getImagePath = (car) => {
-    let modelPath = car.model.toLowerCase().replace(/\s+/g, '-');
-    if (car.make.toLowerCase() === 'mazda' && car.model.toLowerCase().includes('mx-5')) {
-      modelPath = 'mx5-miata';
+    let modelPath = car.model.toLowerCase().replace(/\s+/g, "-");
+    if (
+      car.make.toLowerCase() === "mazda" &&
+      car.model.toLowerCase().includes("mx-5")
+    ) {
+      modelPath = "mx5-miata";
     }
     return `/images/${car.make.toLowerCase()}-${modelPath}/${car.images[0]}`;
   };
@@ -30,21 +34,24 @@ const FeaturedCars = () => {
         <div className="car-grid">
           {featuredCars.map((car) => (
             <div key={car._id} className="car-card">
-              <img 
+              <img
                 src={getImagePath(car)}
-                alt={`${car.name}`} 
-                className="car-image" 
+                alt={`${car.name}`}
+                className="car-image"
                 onError={(e) => {
-                  console.error(`Failed to load image for ${car.name}:`, e.target.src);
+                  console.error(
+                    `Failed to load image for ${car.name}:`,
+                    e.target.src
+                  );
                   e.target.onerror = null;
-                  e.target.src = '/images/placeholder.png';
+                  e.target.src = "/images/placeholder.png";
                 }}
               />
               <div className="car-details">
                 <h3>{car.name}</h3>
                 <p>{car.year}</p>
                 <p className="price">${car.price.toLocaleString()}</p>
-                <button className="view-details-btn">View Details</button>
+                <Link to={`/car/${car._id}`} className="view-details-btn">View Details</Link>
               </div>
             </div>
           ))}

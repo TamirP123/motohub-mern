@@ -6,12 +6,12 @@ const CarCard = ({ car }) => {
   const getImagePath = (car, image) => {
     const make = car.make.toLowerCase();
     let model = car.model.toLowerCase().replace(/\s+/g, "-");
-    
+
     // Special case for Mazda MX-5 Miata
     if (make === "mazda" && model.includes("mx-5")) {
       model = "mx5-miata";
     }
-    
+
     const folderName = `${make}-${model}`;
     return `/images/${folderName}/${image}`;
   };
@@ -40,7 +40,8 @@ const CarCard = ({ car }) => {
         <h2 className="inventory-car-name">{car.name}</h2>
         <p className="inventory-car-price">${car.price.toLocaleString()}</p>
         <p className="inventory-car-details">
-          {car.year} • {car.mileage.toLocaleString()} miles • {car.exteriorColor}
+          {car.year} • {car.mileage.toLocaleString()} miles •{" "}
+          {car.exteriorColor}
         </p>
         <Link to={`/car/${car._id}`} className="inventory-view-details-btn">
           View Details

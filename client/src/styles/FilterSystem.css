@@ -53,3 +53,18 @@
 .MuiFormControlLabel-label {
   color: #ffffff !important;
 }
+
+@media (max-width: 768px) {
+  .filter-system {
+    width: 100%;
+    max-width: none;
+  }
+
+  .filter-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-section h3 {
+    font-size: 1.1rem;
+  }
+}

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Slider, Checkbox, FormGroup, FormControlLabel } from '@mui/material';
-import '../styles/FilterSystem.css';
+import React from "react";
+import { Slider, Checkbox, FormGroup, FormControlLabel } from "@mui/material";
+import "../styles/FilterSystem.css";
 
 const FilterSystem = ({ filters, onFilterChange, allCars }) => {
   const handlePriceChange = (event, newValue) => {
@@ -18,24 +18,26 @@ const FilterSystem = ({ filters, onFilterChange, allCars }) => {
   const handleMakeChange = (event) => {
     const newMakes = event.target.checked
       ? [...filters.make, event.target.name]
-      : filters.make.filter(make => make !== event.target.name);
+      : filters.make.filter((make) => make !== event.target.name);
     onFilterChange({ ...filters, make: newMakes });
   };
 
   const handleTransmissionChange = (event) => {
     const newTransmissions = event.target.checked
       ? [...filters.transmission, event.target.name]
-      : filters.transmission.filter(trans => trans !== event.target.name);
+      : filters.transmission.filter((trans) => trans !== event.target.name);
     onFilterChange({ ...filters, transmission: newTransmissions });
   };
 
-  const uniqueMakes = [...new Set(allCars.map(car => car.make))];
-  const uniqueTransmissions = [...new Set(allCars.map(car => car.transmission))];
+  const uniqueMakes = [...new Set(allCars.map((car) => car.make))];
+  const uniqueTransmissions = [
+    ...new Set(allCars.map((car) => car.transmission)),
+  ];
 
   return (
     <div className="filter-system">
       <h2>Refine Your Search</h2>
-      
+
       <div className="filter-section">
         <h3>Price Range</h3>
         <Slider
@@ -43,7 +45,7 @@ const FilterSystem = ({ filters, onFilterChange, allCars }) => {
           onChange={handlePriceChange}
           valueLabelDisplay="auto"
           min={0}
-          max={100000}
+          max={15000}
           step={1000}
         />
         <div className="range-labels">
@@ -87,10 +89,16 @@ const FilterSystem = ({ filters, onFilterChange, allCars }) => {
       <div className="filter-section">
         <h3>Make</h3>
         <FormGroup>
-          {uniqueMakes.map(make => (
+          {uniqueMakes.map((make) => (
             <FormControlLabel
               key={make}
-              control={<Checkbox checked={filters.make.includes(make)} onChange={handleMakeChange} name={make} />}
+              control={
+                <Checkbox
+                  checked={filters.make.includes(make)}
+                  onChange={handleMakeChange}
+                  name={make}
+                />
+              }
               label={make}
             />
           ))}
@@ -100,10 +108,16 @@ const FilterSystem = ({ filters, onFilterChange, allCars }) => {
       <div className="filter-section">
         <h3>Transmission</h3>
         <FormGroup>
-          {uniqueTransmissions.map(transmission => (
+          {uniqueTransmissions.map((transmission) => (
             <FormControlLabel
               key={transmission}
-              control={<Checkbox checked={filters.transmission.includes(transmission)} onChange={handleTransmissionChange} name={transmission} />}
+              control={
+                <Checkbox
+                  checked={filters.transmission.includes(transmission)}
+                  onChange={handleTransmissionChange}
+                  name={transmission}
+                />
+              }
               label={transmission}
             />
           ))}

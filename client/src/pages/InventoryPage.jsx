@@ -16,6 +16,7 @@ const InventoryPage = () => {
     mileageRange: [0, 200000],
     transmission: [],
   });
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   useEffect(() => {
     if (data && data.cars) {
@@ -72,6 +73,10 @@ const InventoryPage = () => {
     setFilteredCars(filtered);
   };
 
+  const toggleFilterVisibility = () => {
+    setIsFilterVisible(!isFilterVisible);
+  };
+
   if (loading) return <div className="inventory-loading">Loading...</div>;
   if (error)
     return <div className="inventory-error">Error: {error.message}</div>;
@@ -91,11 +96,16 @@ const InventoryPage = () => {
         </div>
       </div>
       <div className="inventory-content">
-        <FilterSystem
-          filters={filters}
-          onFilterChange={handleFilterChange}
-          allCars={data.cars}
-        />
+        <button className="filter-toggle" onClick={toggleFilterVisibility}>
+          {isFilterVisible ? "Hide Filters" : "Show Filters"}
+        </button>
+        <div className={`filter-container ${isFilterVisible ? 'visible' : ''}`}>
+          <FilterSystem
+            filters={filters}
+            onFilterChange={handleFilterChange}
+            allCars={data.cars}
+          />
+        </div>
         <div className="inventory-car-grid">
           {filteredCars.map((car) => (
             <CarCard key={car._id} car={car} />

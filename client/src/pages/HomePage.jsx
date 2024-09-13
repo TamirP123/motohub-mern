@@ -1,19 +1,22 @@
-import React from "react";
-import Hero from "../components/Hero";
+import React from 'react';
+import NavbarComponent from '../components/NavbarComponent';
+import Hero from '../components/Hero';
+import Testimonials from '../components/Testimonials';
 import FeaturedCars from "../components/FeaturedCars";
 import PerformanceGuarantee from "../components/PerformanceGuarantee";
 import AboutUs from "../components/AboutUs";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <div className="home-page">
+      <NavbarComponent />
       <Hero />
       <FeaturedCars />
       <PerformanceGuarantee />
+      <Testimonials />
       <AboutUs />
-      {/* Add other homepage content here */}
     </div>
   );
-}
+};
 
 export default HomePage;
