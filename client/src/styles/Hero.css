@@ -67,6 +67,7 @@
   font-family: 'Orbitron', sans-serif;
   position: relative;
   overflow: hidden;
+  text-decoration: none; /* Add this line to remove the underline */
 }
 
 .cta-button::before {
@@ -84,6 +85,7 @@
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 7px 20px rgba(0, 162, 255, 0.6);
+  text-decoration: none; /* Ensure no underline on hover */
 }
 
 .cta-button:hover::before {

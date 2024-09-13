@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/PerformanceGuarantee.css';
 import { FaCar, FaCheckCircle, FaTachometerAlt, FaCog } from 'react-icons/fa';
 
@@ -33,7 +34,7 @@ const PerformanceGuarantee = () => {
         </div>
 
         <div className="cta-container">
-          <button className="cta-button">Explore Our Inventory</button>
+          <Link to="/inventory" className="cta-button">Explore Our Inventory</Link>
         </div>
       </div>
     </section>

@@ -73,11 +73,14 @@
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-button:hover {
   background: linear-gradient(45deg, #0077ff, #00a2ff);
   box-shadow: 0 0 20px rgba(0, 162, 255, 0.5);
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
