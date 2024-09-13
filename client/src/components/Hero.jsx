@@ -5,8 +5,19 @@ import car1Image from "../assets/car1.png";
 
 function Hero() {
   const heroRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (heroRef.current) {
+        const { left, top, width, height } = heroRef.current.getBoundingClientRect();
+        const x = (e.clientX - left) / width;
+        const y = (e.clientY - top) / height;
+        heroRef.current.style.setProperty('--mouse-x', `${x * 100}%`);
+        heroRef.current.style.setProperty('--mouse-y', `${y * 100}%`);
+      }
+    };
+
     const handleScroll = () => {
       if (heroRef.current) {
         const scrollPosition = window.scrollY;
@@ -14,14 +25,19 @@ function Hero() {
       }
     };
 
+    window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      // Check if window exists before removing the event listener
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
-      }
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    if (titleRef.current) {
+      titleRef.current.innerHTML = titleRef.current.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    }
   }, []);
 
   return (
@@ -32,14 +48,14 @@ function Hero() {
         ))}
       </div>
       <div className="hero-content">
-        <h1>
+        <h1 ref={titleRef}>
           Discover Your <span className="highlight">Future Ride</span>
         </h1>
-        <p>Explore our collection of cutting-edge used cars</p>
+        <p className="typing-text">Explore our collection of cutting-edge used cars</p>
         <Link to="/inventory" className="cta-button">View Inventory</Link>
       </div>
       <div className="hero-image">
-        <img src={car1Image} alt="Futuristic Car" />
+        <img src={car1Image} alt="Futuristic Car" className="floating" />
       </div>
       <div className="futuristic-elements">
         <div className="line line-1"></div>
