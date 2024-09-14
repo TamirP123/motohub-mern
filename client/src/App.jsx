@@ -1,9 +1,10 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import NavbarComponent from "./components/NavbarComponent";
-import "./App.css";
 import Footer from "./components/Footer";
+import "./App.css";
+
 const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
@@ -28,6 +29,7 @@ function App() {
           <Outlet />
         </div>
         <Footer />
+        <ScrollRestoration />
       </div>
     </ApolloProvider>
   );

@@ -1,13 +1,16 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_CAR_DETAILS } from '../utils/queries';
 import Carousel from 'react-bootstrap/Carousel';
 import { FaCar, FaTachometerAlt, FaGasPump, FaCogs } from 'react-icons/fa';
 import '../styles/CarDetailsPage.css';
+import TestDriveModal from '../components/TestDriveModal';
 
 const CarDetailsPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [showTestDriveModal, setShowTestDriveModal] = useState(false);
   const { loading, error, data } = useQuery(GET_CAR_DETAILS, {
     variables: { carId: id },
   });
@@ -29,6 +32,14 @@ const CarDetailsPage = () => {
     
     const folderName = `${make}-${model}`;
     return `/images/${folderName}/${image}`;
+  };
+
+  const handleContactUs = () => {
+    navigate('/contact');
+  };
+
+  const handleScheduleTestDrive = () => {
+    setShowTestDriveModal(true);
   };
 
   return (
@@ -91,12 +102,17 @@ const CarDetailsPage = () => {
             </div>
             <p className="car-description">{car.description}</p>
             <div className="cta-buttons">
-              <button className="cta-button primary">Schedule Test Drive</button>
-              <button className="cta-button secondary">Contact Us</button>
+              <button className="cta-button primary" onClick={handleScheduleTestDrive}>Schedule Test Drive</button>
+              <button className="cta-button secondary" onClick={handleContactUs}>Contact Us</button>
             </div>
           </div>
         </div>
       </div>
+      <TestDriveModal
+        show={showTestDriveModal}
+        onHide={() => setShowTestDriveModal(false)}
+        car={car}
+      />
     </div>
   );
 };
