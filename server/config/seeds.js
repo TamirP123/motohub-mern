@@ -139,7 +139,7 @@ db.once("open", async () => {
       engine: "2.4L I4",
       vin: "VWX987321654",
       featured: false,
-      images: ["toyotaCamryMain.png"],
+      images: ["toyotaCamryMain.png", "toyotaCamryBack.png", "toyotaCamrySide.png", "toyotaCamryInterior.png"],
       description: "Spacious and comfortable Toyota Camry LE",
     },
     {
@@ -156,7 +156,7 @@ db.once("open", async () => {
       engine: "2.0L I4",
       vin: "YZA159753456",
       featured: false,
-      images: ["mazda3Main.png"],
+      images: ["mazda3Main.png", "mazda3Back.png", "mazda3Side.png", "mazda3Interior.png"],
       description: "Sporty and fun-to-drive Mazda3 i Sport",
     },
     {
@@ -173,7 +173,7 @@ db.once("open", async () => {
       engine: "2.0L I4",
       vin: "BCD246813579",
       featured: false,
-      images: ["fordFocusMain.png"],
+      images: ["fordFocusMain.png", "fordFocusBack.png", "fordFocusSide.png", "fordFocusInterior.png"],
       description: "Budget-friendly Ford Focus ZX4 with great fuel economy",
     },
     {
@@ -190,7 +190,7 @@ db.once("open", async () => {
       engine: "2.4L I4",
       vin: "EFG369258147",
       featured: false,
-      images: ["chevyMalibuMain.png"],
+      images: ["chevyMalibuMain.png", "chevyMalibuBack.png", "chevyMalibuSide.png", "chevyMalibuInterior.png"],
       description: "Comfortable and reliable Chevrolet Malibu LT",
     },
   ];

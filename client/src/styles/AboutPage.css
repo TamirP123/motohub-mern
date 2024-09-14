@@ -1,0 +1,131 @@
+.about-page {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #333333;
+  padding: 4rem 2rem;
+}
+
+.about-page__title {
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #00a2ff;
+  letter-spacing: 2px;
+}
+
+.about-page__section {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 2.5rem;
+  border-radius: 15px;
+  background: #f8f8f8;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.about-page__section:hover {
+  transform: translateY(-5px);
+}
+
+.about-page__section h2 {
+  font-size: 2.2rem;
+  color: #00a2ff;
+  margin-bottom: 1.5rem;
+}
+
+.about-page__section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #555555;
+}
+
+.about-page__feature-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.about-page__feature-list li {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.about-page__feature-list li:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.about-page__feature-list i {
+  color: #00a2ff;
+  margin-right: 1rem;
+  font-size: 1.8rem;
+}
+
+.about-page__feature-list span {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #555555;
+}
+
+.about-page__cta {
+  text-align: center;
+  background: #f0f8ff;
+}
+
+.about-page__cta-button {
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  background: #00a2ff;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-page__cta-button:hover {
+  background: #0080ff;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .about-page__title {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-page__section {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-page__section h2 {
+    font-size: 2rem;
+  }
+
+  .about-page__feature-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-page__cta {
+    padding: 2.5rem;
+  }
+
+  .about-page__cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
