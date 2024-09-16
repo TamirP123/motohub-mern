@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from'react-router-dom';
 import { motion } from 'framer-motion';
 import '../styles/AboutPage.css';
 
@@ -56,7 +57,9 @@ const AboutPage = () => {
       <section className="about-page__section about-page__cta">
         <h2>Ready to Find Your Next Car?</h2>
         <p>Visit our showroom or browse our online inventory today. At MotoHub, your dream car is just a click away!</p>
+        <Link to={`/inventory`}>
         <button className="about-page__cta-button">View Inventory</button>
+        </Link>
       </section>
     </motion.div>
   );

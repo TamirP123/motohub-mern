@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import TestDriveNotification from './TestDriveNotification';
-import '../styles/TestDriveModal.css'; // Add this line
+import '../styles/TestDriveModal.css';
 
 const TestDriveModal = ({ show, onHide, car }) => {
   const [selectedSlot, setSelectedSlot] = useState('');
@@ -33,16 +33,14 @@ const TestDriveModal = ({ show, onHide, car }) => {
     console.log(`Test drive scheduled for ${car.name} on ${selectedSlot}`);
     console.log(`Contact info: ${contactInfo}`);
     
-    // Close the modal immediately
     onHide();
     
     // Show the notification
     setShowNotification(true);
     
-    // Hide the notification after 3 seconds
     setTimeout(() => {
       setShowNotification(false);
-    }, 3000);
+    }, 5000);
   };
 
   return (

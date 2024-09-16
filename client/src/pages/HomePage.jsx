@@ -5,7 +5,6 @@ import Testimonials from '../components/Testimonials';
 import FeaturedCars from "../components/FeaturedCars";
 import PerformanceGuarantee from "../components/PerformanceGuarantee";
 import AboutUs from "../components/AboutUs";
-import Footer from '../components/Footer';
 
 const HomePage = () => {
   return (

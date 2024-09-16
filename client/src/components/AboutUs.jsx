@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { FaRocket, FaCog, FaShieldAlt } from "react-icons/fa";
 import "../styles/AboutUs.css";
 
@@ -56,7 +57,9 @@ const AboutUs = () => {
               Motohub, you're not just buying a car – you're investing in the
               future of automotive excellence.
             </p>
+            <Link to={`/about`}>
             <button className="cta-button">Explore Our Vision</button>
+            </Link>
           </div>
         </div>
       </div>
