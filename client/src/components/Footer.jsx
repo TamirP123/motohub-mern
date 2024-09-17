@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -38,10 +39,10 @@ const Footer = () => {
           <Col md={3} sm={6}>
             <h5>Follow Us</h5>
             <ul className="list-unstyled social-icons">
-              <li><a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a></li>
-              <li><a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a></li>
-              <li><a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a></li>
-              <li><a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/tamir-phillips-6096922ba/" aria-label="Twitter"><FaTwitter /></a></li>
+              <li><a href="https://www.linkedin.com/in/tamir-phillips-6096922ba/" aria-label="Instagram"><FaInstagram /></a></li>
+              <li><a href="https://github.com/TamirP123" aria-label="Github"><FaGithub /></a></li>
+              <li><a href="https://www.linkedin.com/in/tamir-phillips-6096922ba/" aria-label="LinkedIn"><FaLinkedin /></a></li>
             </ul>
           </Col>
         </Row>
