@@ -59,6 +59,17 @@ hr {
   border-color: #333;
 }
 
+.coming-soon {
+  cursor: pointer;
+  color: #ffff;
+  font-weight: bold;
+}
+
+.coming-soon:hover {
+  color: #00a2ff;
+}
+
+
 @media (max-width: 768px) {
   .footer {
     text-align: center;

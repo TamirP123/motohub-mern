@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -21,10 +22,16 @@ const Footer = () => {
           <Col md={3} sm={6}>
             <h5>Services</h5>
             <ul className="list-unstyled">
-              <li><Link to="/financing">Financing</Link></li>
-              <li><Link to="/trade-in">Trade-In</Link></li>
-              <li><Link to="/warranty">Warranty</Link></li>
-              <li><Link to="/maintenance">Maintenance</Link></li>
+              {['Financing', 'Trade-In', 'Warranty', 'Maintenance'].map(service => (
+                <li key={service}>
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={<Tooltip>{service} - Coming Soon!</Tooltip>}
+                  >
+                    <span className="coming-soon">{service} <em>(Coming Soon)</em></span>
+                  </OverlayTrigger>
+                </li>
+              ))}
             </ul>
           </Col>
           <Col md={3} sm={6}>
@@ -39,10 +46,10 @@ const Footer = () => {
           <Col md={3} sm={6}>
             <h5>Follow Us</h5>
             <ul className="list-unstyled social-icons">
-              <li><a href="https://www.linkedin.com/in/tamir-phillips-6096922ba/" aria-label="Twitter"><FaTwitter /></a></li>
-              <li><a href="https://www.linkedin.com/in/tamir-phillips-6096922ba/" aria-label="Instagram"><FaInstagram /></a></li>
+              <li><a href="https://twitter.com" aria-label="Twitter"><FaTwitter /></a></li>
+              <li><a href="https://instagram.com" aria-label="Instagram"><FaInstagram /></a></li>
               <li><a href="https://github.com/TamirP123" aria-label="Github"><FaGithub /></a></li>
-              <li><a href="https://www.linkedin.com/in/tamir-phillips-6096922ba/" aria-label="LinkedIn"><FaLinkedin /></a></li>
+              <li><a href="https://linkedin.com" aria-label="LinkedIn"><FaLinkedin /></a></li>
             </ul>
           </Col>
         </Row>
