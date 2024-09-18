@@ -88,7 +88,7 @@ db.once("open", async () => {
       engine: "1.8L I4",
       vin: "MNO789456123",
       featured: false,
-      images: ["toyotaCorollaMain.png", "toyotaCorollaBack.png", "toyotaCorollaFront.png, toyotaCorollaInterior.png"],
+      images: ["toyotaCorollaMain.png", "toyotaCorollaBack.png", "toyotaCorollaFront.png", "toyotaCorollaInterior.png"],
       description: "Reliable and fuel-efficient Toyota Corolla LE",
     },
     {
