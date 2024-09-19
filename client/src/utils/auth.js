@@ -2,17 +2,21 @@ import { jwtDecode } from 'jwt-decode'
 
 class AuthService {
   getProfile() {
-    try {
-      const token = this.getToken();
-      if (!token) return null;
-      return jwtDecode(token);
-    } catch (err) {
-      console.error("Error decoding token:", err);
-      return null;
+    const token = this.getToken();
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        console.log("Decoded token:", decoded); // Debug log
+        return decoded.data || decoded;
+      } catch (err) {
+        console.error("Error decoding token:", err);
+        return null;
+      }
     }
+    return null;
   }
 
-  loggedIn(){
+  loggedIn() {
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
   }
@@ -21,7 +25,7 @@ class AuthService {
     try {
       const decoded = jwtDecode(token);
       if (decoded.exp < Date.now() / 1000) {
-        // localStorage.removeItem('id_token');
+        localStorage.removeItem('id_token');
         return true;
       } else return false;
     } catch (err) {
@@ -35,7 +39,7 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    window.location.assign('/admin/dashboard');
   }
 
   logout() {

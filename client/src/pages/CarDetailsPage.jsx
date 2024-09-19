@@ -1,38 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_CAR_DETAILS } from '../utils/queries';
 import Carousel from 'react-bootstrap/Carousel';
 import { FaCar, FaTachometerAlt, FaGasPump, FaCogs } from 'react-icons/fa';
+import { getImagePath } from '../utils/imageHelpers';
 import '../styles/CarDetailsPage.css';
 import TestDriveModal from '../components/TestDriveModal';
 
 const CarDetailsPage = () => {
   const { id } = useParams();
+  console.log("Car ID from params:", id);
+
   const navigate = useNavigate();
   const [showTestDriveModal, setShowTestDriveModal] = useState(false);
   const { loading, error, data } = useQuery(GET_CAR_DETAILS, {
     variables: { carId: id },
   });
 
+  useEffect(() => {
+    console.log("Component mounted");
+    console.log("Loading:", loading);
+    console.log("Error:", error);
+    console.log("Data:", data);
+  }, [loading, error, data]);
+
+  console.log("Query loading:", loading);
+  console.log("Query error:", error);
+  console.log("Query data:", data);
+
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">Error: {error.message}</div>;
   if (!data || !data.car) return <div className="error">Car not found</div>;
 
   const car = data.car;
-
-  const getImagePath = (car, image) => {
-    const make = car.make.toLowerCase();
-    let model = car.model.toLowerCase().replace(/\s+/g, "-");
-    
-    // Special case for Mazda MX-5 Miata
-    if (make === "mazda" && model.includes("mx-5")) {
-      model = "mx5-miata";
-    }
-    
-    const folderName = `${make}-${model}`;
-    return `/images/${folderName}/${image}`;
-  };
 
   const handleContactUs = () => {
     navigate('/contact');
@@ -55,6 +56,10 @@ const CarDetailsPage = () => {
                     className="d-block w-100"
                     src={getImagePath(car, image)}
                     alt={`${car.name} - View ${index + 1}`}
+                    onError={(e) => {
+                      console.error(`Failed to load image: ${e.target.src}`);
+                      e.target.src = "/images/placeholder.png";
+                    }}
                   />
                 </Carousel.Item>
               ))}

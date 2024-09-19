@@ -17,6 +17,10 @@ const userSchema =  new Schema({
     required: true,
     trim: true
   },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  }
 });
 
 userSchema.pre('save', async function(next) {
@@ -29,7 +33,12 @@ userSchema.pre('save', async function(next) {
 });
 
 userSchema.methods.isCorrectPassword = async function(password) {
-  return await bcrypt.compare(password, this.password);
+  console.log("Comparing passwords:");
+  console.log("Input password:", password);
+  console.log("Stored hashed password:", this.password);
+  const isMatch = await bcrypt.compare(password, this.password);
+  console.log("Password match:", isMatch);
+  return isMatch;
 };
 
 const User = model('User', userSchema);

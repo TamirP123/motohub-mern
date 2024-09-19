@@ -16,6 +16,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      isAdmin
     }
   }
 `;
@@ -36,7 +37,7 @@ export const QUERY_FEATURED_CARS = gql`
 
 // Add this new query
 export const GET_ALL_CARS = gql`
-  query getAllCars {
+  query GetAllCars {
     cars {
       _id
       name
@@ -47,9 +48,13 @@ export const GET_ALL_CARS = gql`
       mileage
       exteriorColor
       interiorColor
+      fuelType
       transmission
+      engine
+      vin
       featured
       images
+      description
     }
   }
 `;
@@ -73,6 +78,22 @@ export const GET_CAR_DETAILS = gql`
       featured
       images
       description
+    }
+  }
+`;
+
+export const GET_TEST_DRIVE_REQUESTS = gql`
+  query getTestDriveRequests {
+    testDriveRequests {
+      _id
+      car {
+        _id
+        name
+      }
+      name
+      phone
+      date
+      status
     }
   }
 `;

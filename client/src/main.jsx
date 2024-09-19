@@ -8,6 +8,10 @@ import InventoryPage from "./pages/InventoryPage.jsx";
 import CarDetailsPage from "./pages/CarDetailsPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import AdminLogin from "./pages/AdminLogin.jsx";
+import AdminDashboard from "./components/AdminDashboard.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import AdminInventoryPage from "./pages/AdminInventoryPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,15 @@ const router = createBrowserRouter([
       { path: "car/:id", element: <CarDetailsPage /> },
       { path: "contact", element: <ContactPage /> },
       { path: "about", element: <AboutPage /> },
+      { path: "adminlogin", element: <AdminLogin /> },
+      { 
+        path: "admin/dashboard", 
+        element: <ProtectedRoute><AdminDashboard /></ProtectedRoute> 
+      },
+      { 
+        path: "admin/inventory", 
+        element: <ProtectedRoute><AdminInventoryPage /></ProtectedRoute> 
+      },
     ],
   },
 ]);

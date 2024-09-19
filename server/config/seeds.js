@@ -1,8 +1,25 @@
 const db = require("./connection");
 const { User, Car } = require("../models");
+const bcrypt = require("bcrypt");
 
 db.once("open", async () => {
   await Car.deleteMany({});
+
+  // Clear existing users
+  await User.deleteMany({});
+
+  // Seed admin user
+  const adminUser = new User({
+    username: "Admin",
+    email: "admin@motohub.com",
+    password: "password",
+    isAdmin: true
+  });
+
+  // Save the user, bypassing the pre-save hook
+  await adminUser.save({ validateBeforeSave: false });
+
+  console.log("Admin user seeded:", adminUser);
 
   const carData = [
     {

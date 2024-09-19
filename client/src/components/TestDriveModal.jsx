@@ -1,101 +1,82 @@
-import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import TestDriveNotification from './TestDriveNotification';
-import '../styles/TestDriveModal.css';
+import React, { useState, useEffect } from 'react';
+import { Modal, Button, Form, Alert } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
+import { ADD_TEST_DRIVE_REQUEST } from '../utils/mutations';
 
 const TestDriveModal = ({ show, onHide, car }) => {
-  const [selectedSlot, setSelectedSlot] = useState('');
-  const [contactInfo, setContactInfo] = useState('');
-  const [showNotification, setShowNotification] = useState(false);
+  const [formState, setFormState] = useState({ name: '', phone: '', date: '' });
+  const [addTestDriveRequest] = useMutation(ADD_TEST_DRIVE_REQUEST);
+  const [availableDates, setAvailableDates] = useState([]);
+  const [error, setError] = useState('');
 
-  const generateTimeSlots = () => {
-    const slots = [];
-    const currentDate = new Date();
-    for (let i = 1; i <= 7; i++) {
-      const date = new Date(currentDate.getTime() + i * 24 * 60 * 60 * 1000);
-      const daySlots = [
-        { time: '10:00 AM', available: Math.random() > 0.3 },
-        { time: '2:00 PM', available: Math.random() > 0.3 },
-        { time: '5:00 PM', available: Math.random() > 0.3 },
-      ];
-      slots.push({ date, slots: daySlots });
-    }
-    return slots;
+  useEffect(() => {
+    // Generate 5 random dates in the next 30 days
+    const dates = Array.from({ length: 5 }, () => {
+      const date = new Date();
+      date.setDate(date.getDate() + Math.floor(Math.random() * 30) + 1);
+      return date.toISOString().split('T')[0];
+    }).sort();
+    setAvailableDates(dates);
+  }, []);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value
+    });
   };
 
-  const timeSlots = generateTimeSlots();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate API call to schedule test drive
-    console.log(`Test drive scheduled for ${car.name} on ${selectedSlot}`);
-    console.log(`Contact info: ${contactInfo}`);
-    
-    onHide();
-    
-    // Show the notification
-    setShowNotification(true);
-    
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 5000);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError('');
+    try {
+      const { data } = await addTestDriveRequest({
+        variables: {
+          carId: car._id,
+          ...formState,
+          date: new Date(formState.date).toISOString() // Ensure date is in ISO format
+        }
+      });
+      onHide();
+      alert('Test drive scheduled successfully!');
+    } catch (e) {
+      console.error('Error scheduling test drive:', e);
+      setError(`Error scheduling test drive: ${e.message}`);
+    }
   };
 
   return (
-    <>
-      <Modal show={show} onHide={onHide} centered size="lg" className="test-drive-modal">
-        <Modal.Header closeButton>
-          <Modal.Title>Schedule Test Drive for {car.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Select a time slot:</Form.Label>
-              <div className="time-slots-container">
-                {timeSlots.map((day, index) => (
-                  <div key={index} className="day-slots">
-                    <h6>{day.date.toLocaleDateString()}</h6>
-                    {day.slots.map((slot, slotIndex) => (
-                      <Button
-                        key={slotIndex}
-                        variant={slot.available ? 'outline-primary' : 'outline-secondary'}
-                        disabled={!slot.available}
-                        active={selectedSlot === `${day.date.toLocaleDateString()} ${slot.time}`}
-                        onClick={() => setSelectedSlot(`${day.date.toLocaleDateString()} ${slot.time}`)}
-                        className="mb-2 time-slot-button"
-                      >
-                        {slot.time}
-                      </Button>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Contact Information:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your name and phone number"
-                value={contactInfo}
-                onChange={(e) => setContactInfo(e.target.value)}
-                required
-              />
-            </Form.Group>
-            <div className="text-center">
-              <Button variant="primary" type="submit" disabled={!selectedSlot || !contactInfo}>
-                Schedule Test Drive
-              </Button>
-            </div>
-          </Form>
-        </Modal.Body>
-      </Modal>
-      <TestDriveNotification
-        show={showNotification}
-        message="Test drive scheduled successfully! We will contact you shortly to confirm."
-      />
-    </>
+    <Modal show={show} onHide={onHide}>
+      <Modal.Header closeButton>
+        <Modal.Title>Schedule Test Drive for {car.name}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {error && <Alert variant="danger">{error}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="text" name="name" value={formState.name} onChange={handleChange} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Phone</Form.Label>
+            <Form.Control type="tel" name="phone" value={formState.phone} onChange={handleChange} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Preferred Date</Form.Label>
+            <Form.Control as="select" name="date" value={formState.date} onChange={handleChange} required>
+              <option value="">Select a date</option>
+              {availableDates.map((date) => (
+                <option key={date} value={date}>{new Date(date).toLocaleDateString()}</option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Schedule Test Drive
+          </Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 };
 

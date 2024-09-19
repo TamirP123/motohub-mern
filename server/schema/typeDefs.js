@@ -4,6 +4,7 @@ type User {
   username: String!
   email: String!
   password: String!
+  isAdmin: Boolean
 }
 
 type Car {
@@ -32,6 +33,16 @@ type Query {
   cars: [Car]
   car(_id: ID!): Car
   featuredCars: [Car]
+  testDriveRequests: [TestDriveRequest]
+}
+
+type TestDriveRequest {
+  _id: ID!
+  car: Car!
+  name: String!
+  phone: String!
+  date: String!
+  status: String!
 }
 
 input CarInput {
@@ -63,6 +74,8 @@ type Mutation {
   addCar(carData: CarInput!): Car
   updateCar(_id: ID!, carData: CarInput!): Car
   deleteCar(_id: ID!): Car
+  adminLogin(email: String!, password: String!): Auth
+  addTestDriveRequest(carId: ID!, name: String!, phone: String!, date: String!): TestDriveRequest
 }
 `;
 
