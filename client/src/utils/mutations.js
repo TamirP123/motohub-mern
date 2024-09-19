@@ -106,16 +106,3 @@ export const ADD_TEST_DRIVE_REQUEST = gql`
     }
   }
 `;
-
-export const DELETE_TEST_DRIVE_REQUEST = gql`
-  mutation DeleteTestDriveRequest($id: ID!) {
-    deleteTestDriveRequest(id: $id) {
-      _id
-      name
-      phone
-      date
-      status
-      error
-    }
-  }
-`;
